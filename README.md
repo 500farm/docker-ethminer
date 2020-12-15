@@ -19,8 +19,9 @@ $ nvidia-docker run -it sergeycheperis/docker-ethminer ARG1 ARG2 ...
 
 Example for *ethermine.org*:
 
-```$ nvidia-docker run -it sergeycheperis/docker-ethminer \
--P stratum+tcp://<your_wallet_address>@eu1.ethermine.org:4444
+```
+$ nvidia-docker run -it sergeycheperis/docker-ethminer \
+    -P stratum+tcp://<your_wallet_address>@eu1.ethermine.org:4444
 ```
 
 **Note:** `-U` (use CUDA only) is set by default.
