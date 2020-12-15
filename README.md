@@ -7,7 +7,9 @@ Simple and easy to run, if you have an Nvidia GPU and want to mine Ethereum.
 Based on [Anthony-Tatowicz/docker-ethminer](https://github.com/Anthony-Tatowicz/docker-ethminer).
 Works with [vast.ai](https://vast.ai/) on CUDA 11.1 instances.
 
-**Note:** This image builds the latest master of [ethminer](https://github.com/ethereum-mining/ethminer).
+This image builds the latest master of [ethminer](https://github.com/ethereum-mining/ethminer).
+
+Pre-built container: https://hub.docker.com/r/sergeycheperis/docker-ethminer.
 
 ### Requirements
 - Ubuntu 16.04.* LTS.
