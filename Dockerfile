@@ -1,6 +1,7 @@
-FROM nvidia/cuda:11.1-devel-ubuntu16.04 AS build-stage
+FROM nvidia/cuda:11.1-devel-ubuntu20.04 AS build-stage
 
 WORKDIR /
+ENV DEBIAN_FRONTEND=noninteractive
 
 # Package and dependency setup
 RUN apt-get update \
@@ -20,7 +21,7 @@ RUN cd ethminer \
     && make install
 
 
-FROM nvidia/cuda:11.1-runtime-ubuntu16.04
+FROM nvidia/cuda:11.1-runtime-ubuntu20.04
 
 WORKDIR /usr/local/bin
 

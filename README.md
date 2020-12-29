@@ -12,7 +12,7 @@ This image builds the latest master of [ethminer](https://github.com/ethereum-mi
 Pre-built container: https://hub.docker.com/r/sergeycheperis/docker-ethminer.
 
 ### Requirements
-- Ubuntu 16.04.* LTS.
+- Ubuntu 20.04.* LTS.
 - Nvidia drivers for your GPU, you can get them here: [Nvidia drivers](http://www.nvidia.com/Download/index.aspx).
 - Nvidia-docker (so docker can access your GPU) install instructions here: [nvidia-docker](https://github.com/NVIDIA/nvidia-docker).
 
