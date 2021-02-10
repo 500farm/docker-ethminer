@@ -1,22 +1,22 @@
 # Ethereum CUDA Miner
 
+Docker container for Ethereum mining with CUDA.
 
-### Docker container for Ethereum mining with CUDA.
-
-Simple and easy to run, if you have an Nvidia GPU and want to mine Ethereum.
 Based on [Anthony-Tatowicz/docker-ethminer](https://github.com/Anthony-Tatowicz/docker-ethminer).
-Works with [vast.ai](https://vast.ai/) on CUDA 11.1 instances.
 
-This image builds the latest master of [ethminer](https://github.com/ethereum-mining/ethminer).
+Works with [vast.ai](https://vast.ai/) on CUDA 11.2 instances.
 
-Pre-built container: https://hub.docker.com/r/sergeycheperis/docker-ethminer.
+## How to run
 
-### Requirements
+Check the requirements:
+
 - Ubuntu 20.04.* LTS.
 - Nvidia drivers for your GPU, you can get them here: [Nvidia drivers](http://www.nvidia.com/Download/index.aspx).
 - Nvidia-docker (so docker can access your GPU) install instructions here: [nvidia-docker](https://github.com/NVIDIA/nvidia-docker).
 
-### How to run
+Use the pre-built container: https://hub.docker.com/r/sergeycheperis/docker-ethminer.
+
+Example:
 ```
 $ nvidia-docker run -it sergeycheperis/docker-ethminer ARG1 ARG2 ...
 ```
@@ -28,7 +28,16 @@ $ nvidia-docker run -it sergeycheperis/docker-ethminer \
     -P stratum+tcp://<your_wallet_address>@eu1.ethermine.org:4444
 ```
 
-**Note:** `-U` (use CUDA only) is set by default.
+Following args are added automatically: `-U --api-bind -3333 --HWMON 2` 
 
-### Help
-`$ etherminer --help`
+## How to build
+
+This image builds the latest master of https://github.com/ethereum-mining/ethminer.
+
+```
+docker build .
+docker tag <image_id> sergeycheperis/docker-ethminer:<version>
+docker tag <image_id> sergeycheperis/docker-ethminer:latest
+docker push sergeycheperis/docker-ethminer:<version>
+docker push sergeycheperis/docker-ethminer:latest
+```
