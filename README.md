@@ -28,7 +28,12 @@ $ nvidia-docker run -it sergeycheperis/docker-ethminer \
     -P stratum+tcp://<your_wallet_address>@eu1.ethermine.org:4444
 ```
 
-Following args are added automatically: `-U --api-bind -3333 --HWMON 2` 
+Help:
+```
+$ nvidia-docker run -it sergeycheperis/docker-ethminer -H
+```
+
+Following args are added automatically: `-U --api-port -3333 --HWMON 2` 
 
 ## How to build
 
