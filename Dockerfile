@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.1-devel-ubuntu20.04 AS build-stage
+FROM nvidia/cuda:11.2.0-devel-ubuntu20.04 AS build-stage
 
 WORKDIR /
 ENV DEBIAN_FRONTEND=noninteractive
@@ -16,17 +16,17 @@ RUN git clone https://github.com/ethereum-mining/ethminer.git \
 RUN cd ethminer \
     && mkdir build \
     && cd build \
-    && cmake .. -DETHASHCUDA=ON -DETHASHCL=OFF -DETHSTRATUM=ON \
+    && cmake .. -DETHASHCUDA=ON -DETHASHCL=OFF -DETHSTRATUM=ON -DAPICORE=ON \
     && cmake --build . \
     && make install
 
 
-FROM nvidia/cuda:11.1-runtime-ubuntu20.04
+FROM nvidia/cuda:11.2.0-runtime-ubuntu20.04
 
 WORKDIR /usr/local/bin
 
 COPY --from=build-stage /usr/local/bin/ethminer .
 
-ENTRYPOINT ["/usr/local/bin/ethminer", "-U"]
+ENTRYPOINT ["/usr/local/bin/ethminer", "-U", "--HWMON", "2", "--api-bind", "-3333"]
 
 MAINTAINER Sergey Cheperis
