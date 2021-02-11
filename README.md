@@ -33,7 +33,7 @@ Help:
 $ nvidia-docker run -it sergeycheperis/docker-ethminer -H
 ```
 
-Following args are added automatically: `-U --api-port -3333 --HWMON 2` 
+Following args are added automatically: `-U --api-port -3333 --HWMON 2`. JSON RPC API is exposed in read-only mode on port 3333.
 
 ## How to build
 

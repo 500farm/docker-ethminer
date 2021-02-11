@@ -28,5 +28,6 @@ WORKDIR /usr/local/bin
 COPY --from=build-stage /usr/local/bin/ethminer .
 
 ENTRYPOINT ["/usr/local/bin/ethminer", "-U", "--HWMON", "2", "--api-port", "-3333"]
+EXPOSE 3333
 
 MAINTAINER Sergey Cheperis
