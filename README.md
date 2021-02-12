@@ -40,9 +40,7 @@ Following args are added automatically: `-U --api-port -3333 --HWMON 2`. JSON RP
 This image builds the latest master of https://github.com/ethereum-mining/ethminer.
 
 ```
-docker build .
-docker tag <image_id> sergeycheperis/docker-ethminer:<version>
-docker tag <image_id> sergeycheperis/docker-ethminer:latest
+docker build -t sergeycheperis/docker-ethminer:<version> -t sergeycheperis/docker-ethminer:latest .
 docker push sergeycheperis/docker-ethminer:<version>
 docker push sergeycheperis/docker-ethminer:latest
 ```
