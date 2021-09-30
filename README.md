@@ -4,7 +4,7 @@ Docker container for Ethereum mining with CUDA.
 
 Based on [Anthony-Tatowicz/docker-ethminer](https://github.com/Anthony-Tatowicz/docker-ethminer).
 
-Works with [vast.ai](https://vast.ai/) on CUDA 11.2 instances.
+Works with [vast.ai](https://vast.ai/) on CUDA 11.2 and 11.4 instances.
 
 ## How to run
 
