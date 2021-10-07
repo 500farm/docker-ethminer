@@ -5,12 +5,18 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Package and dependency setup
 RUN apt-get update \
-    && apt-get install -y git cmake mesa-common-dev build-essential
+    && apt-get install -y git cmake mesa-common-dev build-essential wget
 
 # Git repo set up
 RUN git clone https://github.com/ethereum-mining/ethminer.git \
     && cd ethminer \
     && git submodule update --init --recursive
+
+# Fix for unable to download boost from bintray.org
+# https://github.com/ethereum-mining/ethminer/issues/2290
+RUN mkdir -p /root/.hunter/_Base/Download/Boost/1.66.0/075d0b4 \
+    && cd /root/.hunter/_Base/Download/Boost/1.66.0/075d0b4 \
+    && wget https://boostorg.jfrog.io/artifactory/main/release/1.66.0/source/boost_1_66_0.7z
 
 # Build
 RUN cd ethminer \
