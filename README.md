@@ -6,6 +6,10 @@ Based on [Anthony-Tatowicz/docker-ethminer](https://github.com/Anthony-Tatowicz/
 
 Works with [vast.ai](https://vast.ai/) on CUDA 11.2 and 11.4 instances.
 
+Contains workarounds for:
+- https://github.com/ethereum-mining/ethminer/issues/1895
+- https://github.com/ethereum-mining/ethminer/issues/2290
+
 ## How to run
 
 Check the requirements:
@@ -33,7 +37,7 @@ Help:
 $ nvidia-docker run -it sergeycheperis/docker-ethminer -H
 ```
 
-Following args are added automatically: `-U --api-port -3333 --HWMON 2`. JSON RPC API is exposed in read-only mode on port 3333.
+Following args are added automatically: `-U --api-port -3333 --HWMON 2 --syslog`. JSON RPC API is exposed in read-only mode on port 3333.
 
 ## How to build
 

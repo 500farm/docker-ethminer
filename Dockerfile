@@ -26,14 +26,23 @@ RUN cd ethminer \
     && cmake --build . \
     && make install
 
+#---------------
+
+FROM golang:alpine AS build-stage-go
+
+WORKDIR /usr/local/go/src/build
+
+COPY wrapper/*.go ./
+RUN go build -o /usr/local/bin/wrapper .
+
+#---------------
 
 FROM nvidia/cuda:11.2.0-runtime-ubuntu20.04
 
 WORKDIR /usr/local/bin
 
 COPY --from=build-stage /usr/local/bin/ethminer .
+COPY --from=build-stage-go /usr/local/bin/wrapper .
 
-ENTRYPOINT ["/usr/local/bin/ethminer", "-U", "--HWMON", "2", "--api-port", "-3333"]
+ENTRYPOINT ["/usr/local/bin/wrapper", "-U", "--HWMON", "2", "--api-port", "-3333", "--syslog"]
 EXPOSE 3333
-
-MAINTAINER Sergey Cheperis
