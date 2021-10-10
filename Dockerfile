@@ -32,7 +32,7 @@ FROM golang:alpine AS build-stage-go
 
 WORKDIR /usr/local/go/src/build
 
-COPY wrapper/*.go ./
+COPY wrapper/src/*.go ./
 RUN go build -o /usr/local/bin/wrapper .
 
 #---------------
